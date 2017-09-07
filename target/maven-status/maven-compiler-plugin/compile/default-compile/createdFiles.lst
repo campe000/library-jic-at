@@ -1,0 +1,6 @@
+com/test/rest/CustomJacksonJsonProvider$1.class
+com/test/rest/TestResource.class
+com/test/rest/CustomJacksonJsonProvider.class
+com/test/config/ObjectifyConfig.class
+com/test/dao/TestBeanDAO.class
+com/test/data/TestBean.class
