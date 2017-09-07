@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import com.googlecode.objectify.ObjectifyService;
 import com.library.data.Book;
 import com.library.data.Result;
+import com.googlecode.objectify.Key;
 
 /**
  * @author Jorge Iglesias
@@ -18,8 +19,12 @@ public class ObjectifyBookDao  implements BookDao {
 
 	@Override
 	public Long createBook(Book book) throws SQLException {
-
-		return null;
+		if (book == null) {
+            throw new IllegalArgumentException("null test object");
+        }
+        LOGGER.info("Saving bean " + book.getId());
+        Key<Book> recordSave = ObjectifyService.ofy().save().entity(book).now();
+		return recordSave.getId();
 	}
 
 	@Override
