@@ -4,8 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <listener>
-        <listener-class>com.test.config.ObjectifyConfig
-        </listener-class>
+        <listener-class>com.library.config.ObjectifyConfig</listener-class>
     </listener>
 
     <filter>
@@ -23,7 +22,7 @@
         </servlet-class>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.test.rest</param-value>
+            <param-value>com.library.rest</param-value>
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.config.feature.DisableWADL</param-name>

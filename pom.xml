@@ -18,7 +18,7 @@
         <appengine.target.version>1.9.26</appengine.target.version>
         <appengine.pipeline.version>[0.2.7,0.2.9]</appengine.pipeline.version>
         <appengine.app.version>1</appengine.app.version>
-        <swagger.rest.package>com.test.rest</swagger.rest.package>
+        <swagger.rest.package>com.library.rest</swagger.rest.package>
         <swagger.rest.uri>rest</swagger.rest.uri>
 
         <!-- Dependencies configuration -->

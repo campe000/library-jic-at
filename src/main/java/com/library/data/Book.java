@@ -27,7 +27,10 @@ public class Book {
   public static final String TITLE = "title";
   public static final String IMAGE_URL = "imageUrl";
 
-  private Book(Builder builder) {
+  public Book() {
+	  
+  }
+  public Book(Book builder) {
     this.title = builder.title;
     this.author = builder.author;
     this.createdBy = builder.createdBy;
@@ -38,60 +41,6 @@ public class Book {
     this.imageUrl = builder.imageUrl;
   }
 
-  public static class Builder {
-    private String title;
-    private String author;
-    private String createdBy;
-    private String createdById;
-    private String publishedDate;
-    private String description;
-    private Long id;
-    private String imageUrl;
-
-    public Builder title(String title) {
-      this.title = title;
-      return this;
-    }
-
-    public Builder author(String author) {
-      this.author = author;
-      return this;
-    }
-
-    public Builder createdBy(String createdBy) {
-      this.createdBy = createdBy;
-      return this;
-    }
-
-    public Builder createdById(String createdById) {
-      this.createdById = createdById;
-      return this;
-    }
-
-    public Builder publishedDate(String publishedDate) {
-      this.publishedDate = publishedDate;
-      return this;
-    }
-
-    public Builder description(String description) {
-      this.description = description;
-      return this;
-    }
-
-    public Builder id(Long id) {
-      this.id = id;
-      return this;
-    }
-
-    public Builder imageUrl(String imageUrl) {
-      this.imageUrl = imageUrl;
-      return this;
-    }
-
-    public Book build() {
-      return new Book(this);
-    }
-  }
 
   public String getTitle() {
     return title;

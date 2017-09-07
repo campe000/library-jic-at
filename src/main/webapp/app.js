@@ -1,11 +1,11 @@
 'use strict';
 angular
-    .module('test', ['ngRoute'])
+    .module('library', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/list.html',
-                controller: 'ListCtrl',
+                controller: 'LibraryCtrl',
                 controllerAs: 'list'
             })
             .when('/:id', {

@@ -1,17 +1,25 @@
-<h3>List of tests</h3>
+<h3>Listado de Libros</h3>
 <div ng-repeat="item in list">
-    <a href="/#/{{item.id}}">{{item.data}}</a>
+    {{item}}<a href="/#/{{item.id}}">{{item.title}} - aquí va el nombre</a>
 </div>
 
-<h3>New test</h3>
+<h3>Alta nuevo libro</h3>
 <div>
     <div>
-        <label for="id">id</label>
-        <input id="id" ng-model="form.id"/>
+        <label for="title">Titulo</label>
+        <input id="title" ng-model="form.title"/>
     </div>
     <div>
-        <label for="data">data</label>
-        <input id="data" ng-model="form.data"/>
+        <label for="author">Autor</label>
+        <input id="author" ng-model="form.author"/>
+    </div>
+    <div>
+        <label for="publishedDate">Fecha de publicación</label>
+        <input id="publishedDate" ng-model="form.publishedDate"/>
+    </div>
+    <div>
+        <label for="description">Genero</label>
+        <input id="description" ng-model="form.description"/>
     </div>
     <button ng-click="save()">Save</button>
 </div>

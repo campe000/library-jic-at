@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('test')
-    .controller('ListCtrl', function ($scope, test) {
+angular.module('library')
+    .controller('LibraryCtrl', function ($scope, library) {
 
         $scope.load = function() {
-            test.list(function (list) {
-                $scope.list = list.data;
+        	library.list($scope.form,function (list) {
+                $scope.list = list.result;
             });
         }
 
         $scope.save = function() {
-            test.save($scope.form, function() {
+        	library.save($scope.form, function() {
                 $scope.load();
             });
         }

@@ -32,13 +32,15 @@ public class DatastoreDao implements BookDao {
  
 
   public Book entityToBook(Entity entity) {
-    return new Book.Builder()                                     // Convert to Book form
-        .author(entity.getString(Book.AUTHOR))
-        .description(entity.getString(Book.DESCRIPTION))
-        .id(entity.getKey().getId())
-        .publishedDate(entity.getString(Book.PUBLISHED_DATE))
-        .title(entity.getString(Book.TITLE))
-        .build();
+	  
+	  Book book = new Book();
+	  book.setAuthor(entity.getString(Book.AUTHOR));
+	  book.setDescription(entity.getString(Book.DESCRIPTION));
+	  book.setId(entity.getKey().getId());
+	  book.setPublishedDate(entity.getString(Book.PUBLISHED_DATE));
+	  book.setTitle(entity.getString(Book.TITLE));
+	  
+	  return book;
   }
 
   @Override

@@ -3,11 +3,11 @@
 angular.module('library')
     .service('library', function ($http) {
         return {
-            list: function (success) {
+        	listBooks: function (success) {
                 return $http.get("/rest/library").then(success);
             },
-            save: function (test, success) {
-                return $http.post("/rest/library", test).then(success);
+            save: function (library, success) {
+                return $http.post("/rest/library", library).then(success);
             }
         };
     });
