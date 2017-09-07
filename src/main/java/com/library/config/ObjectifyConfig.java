@@ -24,6 +24,8 @@ public class ObjectifyConfig implements ServletContextListener {
 		ObjectifyService.factory().getTranslators().add(new DateTimeZoneTranslatorFactory());
 
 		ObjectifyService.register(Book.class);
+		
+		//END
 	}
 
 	@Override
