@@ -1,18 +1,17 @@
 package com.library.dao;
 
-import java.sql.SQLException;
+import java.util.List;
 
 import com.library.data.Book;
-import com.library.data.Result;
 
 public interface BookDao {
-	Long createBook(Book book) throws SQLException;
+	Long createBook(Book book);
 
-	Book readBook(Long bookId) throws SQLException;
+	Book readBook(Long bookId) ;
 
-	void updateBook(Book book) throws SQLException;
+	void updateBook(Book book);
 
-	void deleteBook(Long bookId) throws SQLException;
+	void deleteBook(Long bookId);
 
-	Result<Book> listBooks(String startCursor) throws SQLException;
+	List<Book> listBooks(String startCursor);
 }

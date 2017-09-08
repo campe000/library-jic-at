@@ -1,24 +1,22 @@
 package com.library.dao;
 
-import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Logger;
 
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 import com.library.data.Book;
-import com.library.data.Result;
-import com.googlecode.objectify.Key;
 
 /**
  * @author Jorge Iglesias
  * descripton Implementacion DAO para ObjectifyService
  */
-public class ObjectifyBookDao  implements BookDao {
+public class ObjectifyBookDao {
 
     private static final Logger LOGGER = Logger.getLogger(ObjectifyBookDao.class.getName());
 
 
-	@Override
-	public Long createBook(Book book) throws SQLException {
+	public Long createBook(Book book) {
 		if (book == null) {
             throw new IllegalArgumentException("null test object");
         }
@@ -27,20 +25,17 @@ public class ObjectifyBookDao  implements BookDao {
 		return recordSave.getId();
 	}
 
-	@Override
-	public Book readBook(Long bookId) throws SQLException {
+	public Book readBook(Long bookId) {
 		LOGGER.info("Retrieving bean " + bookId);
         return ObjectifyService.ofy().load().type(Book.class).id(bookId).now();
 	}
 
-	@Override
-	public void updateBook(Book book) throws SQLException {
+	public void updateBook(Book book) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void deleteBook(Long bookId) throws SQLException {
+	public void deleteBook(Long bookId) {
 //		if (bean == null) {
 //            throw new IllegalArgumentException("null test object");
 //        }
@@ -49,10 +44,10 @@ public class ObjectifyBookDao  implements BookDao {
 		
 	}
 
-	@Override
-	public Result<Book> listBooks(String startCursor) throws SQLException {
+	public List<Book> listBooks() {
+		List<Book> listado = null;
+		listado = ObjectifyService.ofy().load().type(Book.class).list();
 		LOGGER.info("Retrieving list of beans");
-		Result<Book> listBooks = new Result<Book>(ObjectifyService.ofy().load().type(Book.class).list()) ;
-        return listBooks;
+        return  listado;
 	}
 }

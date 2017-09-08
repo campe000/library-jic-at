@@ -2,6 +2,7 @@ package com.library.data;
 
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
 import com.wordnik.swagger.annotations.ApiModel;
 
 @Entity
@@ -11,36 +12,13 @@ public class Book {
 
   private String title;
   private String author;
-  private String createdBy;
-  private String createdById;
+//  private String createdBy;
+//  private String createdById;
   private String publishedDate;
   private String description;
+  @Id
   private Long id;
   private String imageUrl;
-
-  public static final String AUTHOR = "author";
-  public static final String CREATED_BY = "createdBy";
-  public static final String CREATED_BY_ID = "createdById";
-  public static final String DESCRIPTION = "description";
-  public static final String ID = "id";
-  public static final String PUBLISHED_DATE = "publishedDate";
-  public static final String TITLE = "title";
-  public static final String IMAGE_URL = "imageUrl";
-
-  public Book() {
-	  
-  }
-  public Book(Book builder) {
-    this.title = builder.title;
-    this.author = builder.author;
-    this.createdBy = builder.createdBy;
-    this.createdById = builder.createdById;
-    this.publishedDate = builder.publishedDate;
-    this.description = builder.description;
-    this.id = builder.id;
-    this.imageUrl = builder.imageUrl;
-  }
-
 
   public String getTitle() {
     return title;
@@ -58,21 +36,21 @@ public class Book {
     this.author = author;
   }
 
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public String getCreatedById() {
-    return createdById;
-  }
-
-  public void setCreatedById(String createdById) {
-    this.createdById = createdById;
-  }
+//  public String getCreatedBy() {
+//    return createdBy;
+//  }
+//
+//  public void setCreatedBy(String createdBy) {
+//    this.createdBy = createdBy;
+//  }
+//
+//  public String getCreatedById() {
+//    return createdById;
+//  }
+//
+//  public void setCreatedById(String createdById) {
+//    this.createdById = createdById;
+//  }
 
   public String getPublishedDate() {
     return publishedDate;
@@ -106,11 +84,11 @@ public class Book {
     this.imageUrl = imageUrl;
   }
 
-  @Override
-  public String toString() {
-    return
-        "Title: " + title + ", Author: " + author + ", Published date: " + publishedDate
-        + ", Added by: " + createdBy;
-  }
+//  @Override
+//  public String toString() {
+//    return
+//        "Title: " + title + ", Author: " + author + ", Published date: " + publishedDate
+//        + ", Added by: " + createdBy;
+//  }
 }
 

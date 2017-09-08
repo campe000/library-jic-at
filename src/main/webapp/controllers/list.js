@@ -4,13 +4,13 @@ angular.module('library')
     .controller('LibraryCtrl', function ($scope, library) {
 
         $scope.load = function() {
-        	library.list($scope.form,function (list) {
-                $scope.list = list.result;
+        	library.listBooks(function (list) {
+                $scope.list = list;
             });
         }
 
-        $scope.save = function() {
-        	library.save($scope.form, function() {
+        $scope.createBook = function() {
+        	library.createBook($scope.form, function() {
                 $scope.load();
             });
         }

@@ -6,7 +6,7 @@ angular.module('library')
         	listBooks: function (success) {
                 return $http.get("/rest/library").then(success);
             },
-            save: function (library, success) {
+            createBook: function (library, success) {
                 return $http.post("/rest/library", library).then(success);
             }
         };

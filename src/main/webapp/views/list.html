@@ -1,6 +1,12 @@
 <h3>Listado de Libros</h3>
+<div class="filtro">
+		<span class="buscarLibros">Buscar:</span> 
+		<input id="bookToSearch" ng-model="bookToSearch" class="filtroLibros">
+		<button ng-click="searchBook()">Buscar</button>
+	</div> 
+	
 <div ng-repeat="item in list">
-    {{item}}<a href="/#/{{item.id}}">{{item.title}} - aquí va el nombre</a>
+    {{item.id}} - {{item.author}} - {{item.title}}
 </div>
 
 <h3>Alta nuevo libro</h3>
@@ -21,5 +27,5 @@
         <label for="description">Genero</label>
         <input id="description" ng-model="form.description"/>
     </div>
-    <button ng-click="save()">Save</button>
+    <button ng-click="createBook()">Alta</button>
 </div>
