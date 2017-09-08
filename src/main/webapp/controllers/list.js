@@ -5,12 +5,18 @@ angular.module('library')
 
         $scope.load = function() {
         	library.listBooks(function (list) {
-                $scope.list = list;
+        		$scope.list = list.data;
             });
         }
 
         $scope.createBook = function() {
         	library.createBook($scope.form, function() {
+                $scope.load();
+            });
+        }
+
+        $scope.deleteBook = function(bookId) {
+        	library.deleteBook(bookId, function() {
                 $scope.load();
             });
         }

@@ -1,31 +1,42 @@
 <h3>Listado de Libros</h3>
 <div class="filtro">
-		<span class="buscarLibros">Buscar:</span> 
-		<input id="bookToSearch" ng-model="bookToSearch" class="filtroLibros">
-		<button ng-click="searchBook()">Buscar</button>
-	</div> 
-	
-<div ng-repeat="item in list">
-    {{item.id}} - {{item.author}} - {{item.title}}
+	<span class="buscarLibros">Buscar:</span> 
+	<input id="bookToSearch" ng-model="bookToSearch" class="filtroLibros">
+	<button ng-click="searchBook()">Buscar</button>
 </div>
+
+<table class="tablaLibros">
+	 <thead>
+		<tr>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="libro in list">
+			<td>{{libro.title}}</td>
+			<td>{{libro.author}}</td>
+			<td><a ng-click="deleteBook(libro.id)">Borrar - {{libro.id}}</a></td>
+		</tr>
+	</tbody>
+</table>
+
 
 <h3>Alta nuevo libro</h3>
 <div>
-    <div>
-        <label for="title">Titulo</label>
-        <input id="title" ng-model="form.title"/>
-    </div>
-    <div>
-        <label for="author">Autor</label>
-        <input id="author" ng-model="form.author"/>
-    </div>
-    <div>
-        <label for="publishedDate">Fecha de publicación</label>
-        <input id="publishedDate" ng-model="form.publishedDate"/>
-    </div>
-    <div>
-        <label for="description">Genero</label>
-        <input id="description" ng-model="form.description"/>
-    </div>
-    <button ng-click="createBook()">Alta</button>
+	<div>
+		<label for="title">Titulo</label> <input id="title"	ng-model="form.title" />
+	</div>
+	<div>
+		<label for="author">Autor</label> <input id="author" ng-model="form.author" />
+	</div>
+	<div>
+		<label for="publishedDate">Fecha de publicación</label> <input	id="publishedDate" ng-model="form.publishedDate" />
+	</div>
+	<div>
+		<label for="description">Genero</label> 
+		<input id="description"	ng-model="form.description" />
+	</div>
+	<button ng-click="createBook()">Alta</button>
 </div>

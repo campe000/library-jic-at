@@ -18,7 +18,7 @@ public class ObjectifyBookDao {
 
 	public Long createBook(Book book) {
 		if (book == null) {
-            throw new IllegalArgumentException("null test object");
+            throw new IllegalArgumentException("null Book object");
         }
         LOGGER.info("Saving bean " + book.getId());
         Key<Book> recordSave = ObjectifyService.ofy().save().entity(book).now();
@@ -36,11 +36,11 @@ public class ObjectifyBookDao {
 	}
 
 	public void deleteBook(Long bookId) {
-//		if (bean == null) {
-//            throw new IllegalArgumentException("null test object");
-//        }
-//        LOGGER.info("Deleting bean " + bookId);
-//        ObjectifyService.ofy().delete().entity(bean);
+		if (bookId == null) {
+            throw new IllegalArgumentException("null Book object");
+        }
+        LOGGER.info("Deleting bean " + bookId);
+        ObjectifyService.ofy().delete().entity(bookId);
 		
 	}
 
