@@ -17,11 +17,16 @@ angular.module('library')
 
         $scope.deleteBook = function(bookId) {
         	library.deleteBook(bookId, function() {
-        		alert('pruebas');
                 $scope.load();
             });
         }
 
+        $scope.detailBook = function(bookId) {
+        	library.detailBook(bookId, function(book) {
+        		$scope.book = book;
+            });
+        }
+        
         $scope.form = {};
 
         $scope.load();

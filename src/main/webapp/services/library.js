@@ -6,6 +6,13 @@ angular.module('library')
         	listBooks: function (success) {
                 return $http.get("/rest/library").then(success);
             },
+        	detailBook: function (bookId) {
+                return $http.get("/rest/library/"+ bookId).then(function(response) {
+            	    console.log(response.data);
+            	}, function(rejection) {
+            	    console.log(rejection.data);
+            	});
+            },
             createBook: function (library, success) {
                 return $http.post("/rest/library", library).then(success);
             },

@@ -1,0 +1,17 @@
+<h3>Detalle del libro {{book.title}}</h3>
+<div>
+	<div>
+		<label for="title">Titulo</label> <input id="title"	ng-model="form.title" value="{{book.title}}"/>
+	</div>
+	<div>
+		<label for="author">Autor</label> <input id="author" ng-model="form.author"  value="{{book.author}}"/>
+	</div>
+	<div>
+		<label for="publishedDate">Fecha de publicación</label> <input	id="publishedDate" ng-model="form.publishedDate"  value="{{book.publishedDate}}"/>
+	</div>
+	<div>
+		<label for="description">Genero</label> 
+		<input id="description"	ng-model="form.description" value="{{book.description}}" />
+	</div>
+	<button ng-click="createBook()">Actualzar</button>
+</div>

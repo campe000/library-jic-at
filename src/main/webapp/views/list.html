@@ -15,7 +15,7 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="libro in list">
-			<td>{{libro.title}}</td>
+			<td><a ng-click="detailBook(libro.id)">{{libro.title}}</a></td>
 			<td>{{libro.author}}</td>
 			<td><a ng-click="deleteBook(libro.id)">Borrar</a></td>
 		</tr>
