@@ -9,9 +9,8 @@ angular.module('library')
             createBook: function (library, success) {
                 return $http.post("/rest/library", library).then(success);
             },
-            deleteBook: function (bookId, success) {
-            	
-            	$http({
+            deleteBook: function (bookId) {
+            	return $http({
             	    method: 'DELETE',
             	    url: '/rest/library/delete/' + bookId,
             	    data: {
@@ -26,8 +25,6 @@ angular.module('library')
             	}, function(rejection) {
             	    console.log(rejection.data);
             	});
-            	
-                return $http.delete("/rest/library", library).then(success);
             }
         };
     });

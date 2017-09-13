@@ -3,6 +3,7 @@ package com.library.data;
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 import com.wordnik.swagger.annotations.ApiModel;
 
 @Entity
@@ -10,14 +11,13 @@ import com.wordnik.swagger.annotations.ApiModel;
 @ApiModel("Book object")
 public class Book {
 
-  private String title;
-  private String author;
+	@Index private String title;
+	@Index private String author;
   private String createdBy;
   private String createdById;
   private String publishedDate;
   private String description;
-  @Id
-  private Long id;
+  @Id  private Long id;
   private String imageUrl;
 
   public static final String AUTHOR = "author";

@@ -17,6 +17,7 @@ angular.module('library')
 
         $scope.deleteBook = function(bookId) {
         	library.deleteBook(bookId, function() {
+        		alert('pruebas');
                 $scope.load();
             });
         }

@@ -37,24 +37,17 @@ public class LibraryResource {
         
     }
 
-//    @GET
-//    @Path("/{id}")
-//    @ApiOperation("get detail book object")
-//    public Response readBook(@PathParam("id") Long id) {
-//        Book bean = null;
-//		try {
-//			bean = this.bookDAO.readBook(id);
-//			if (bean == null) {
-//	            return Response.status(Response.Status.NOT_FOUND).build();
-//	        }
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-//		}
-//        
-//        return Response.ok(bean).build();
-//    }
+    @GET
+    @Path("/{id}")
+    @ApiOperation("get detail book object")
+    public Response readBook(@PathParam("id") Long id) {
+        Book bean = null;
+		bean = this.bookDAO.readBook(id);
+		if (bean == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }        
+        return Response.ok(bean).build();
+    }
 
     @POST
     @Consumes("application/json;charset=utf-8")
@@ -68,11 +61,11 @@ public class LibraryResource {
     @Path("/delete/{bookId}")
     @ApiOperation("delete book object")
     public Response delete(@PathParam("bookId") Long bookId) {
-//        Book bean;
-//		bean = this.bookDAO.readBook(bookId);
-//		if (bean == null) {
-//            return Response.status(Response.Status.NOT_FOUND).build();
-//        }
+        Book bean;
+		bean = this.bookDAO.readBook(bookId);
+		if (bean == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
         this.bookDAO.deleteBook(bookId);
         return Response.ok().build();
     }

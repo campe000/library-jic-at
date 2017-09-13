@@ -40,7 +40,9 @@ public class ObjectifyBookDao {
             throw new IllegalArgumentException("null Book object");
         }
         LOGGER.info("Deleting bean " + bookId);
-        ObjectifyService.ofy().delete().entity(bookId);
+        Book deleteBook = new Book();
+        deleteBook.setId(bookId);
+        ObjectifyService.ofy().delete().entity(deleteBook);
 		
 	}
 
