@@ -6,15 +6,28 @@ angular.module('library')
         	listBooks: function (success) {
                 return $http.get("/rest/library").then(success);
             },
-        	detailBook: function (bookId) {
-                return $http.get("/rest/library/"+ bookId).then(function(response) {
+        	detailBook: function (bookId,success) {
+                return $http.get("/rest/library/"+ bookId).then(success);
+            },
+            createBook: function (library, success) {
+                return $http.post("/rest/library", library).then(success);
+            },
+            searchBook: function (library, success) {
+            	return $http({
+            	    method: 'GET',
+            	    url: '/rest/library/listado/' + library,
+            	    data: {
+            	        id: library
+            	    },
+            	    headers: {
+            	        'Content-type': 'application/json;charset=utf-8'
+            	    }
+            	})
+            	.then(function(response) {
             	    console.log(response.data);
             	}, function(rejection) {
             	    console.log(rejection.data);
             	});
-            },
-            createBook: function (library, success) {
-                return $http.post("/rest/library", library).then(success);
             },
             deleteBook: function (bookId) {
             	return $http({

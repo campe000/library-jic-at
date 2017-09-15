@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('library')
-    .controller('LibraryCtrl', function ($scope, library) {
-
+    .controller('LibraryCtrl', function ($scope,$location, library) {
+    	
         $scope.load = function() {
         	library.listBooks(function (list) {
         		$scope.list = list.data;
@@ -15,15 +15,15 @@ angular.module('library')
             });
         }
 
+        $scope.searchBook = function() {
+        	library.searchBook($scope.bookToSearch,function (list) {
+        		$scope.list = list.data;
+            });
+        }
+        
         $scope.deleteBook = function(bookId) {
         	library.deleteBook(bookId, function() {
                 $scope.load();
-            });
-        }
-
-        $scope.detailBook = function(bookId) {
-        	library.detailBook(bookId, function(book) {
-        		$scope.book = book;
             });
         }
         

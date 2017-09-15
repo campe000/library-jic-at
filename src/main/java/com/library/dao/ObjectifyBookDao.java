@@ -46,6 +46,14 @@ public class ObjectifyBookDao {
 		
 	}
 
+	public List<Book> searchBook (String textTosearch){
+		LOGGER.info("Busqueda de libros " + textTosearch);
+		List<Book> listado = null;
+		listado = ObjectifyService.ofy().load().type(Book.class).list();
+		LOGGER.info("Retrieving list of beans");
+        return  listado;
+	}
+	
 	public List<Book> listBooks() {
 		List<Book> listado = null;
 		listado = ObjectifyService.ofy().load().type(Book.class).list();

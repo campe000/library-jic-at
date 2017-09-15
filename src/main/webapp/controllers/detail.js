@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('library')
-    .controller('DetailCtrl', function ($scope, library) {
-
-        $scope.detailBook = function(bookId) {
-        	library.detailBook(bookId, function(book) {
-        		$scope.book = book;
+    .controller('DetailCtrl', function ($scope, $routeParams, library) {
+    	$scope.load = function() {
+    		console.log($routeParams.id);
+    		
+    		library.detailBook($routeParams.id, function(book) {
+    			$scope.book = book;
             });
         }
         

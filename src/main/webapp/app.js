@@ -8,9 +8,9 @@ angular
                 controller: 'LibraryCtrl',
                 controllerAs: 'list'
             })
-            .when('/rest/library/:id', {
+            .when('/:id', {
                 templateUrl: 'views/detail.html',
-                controller: 'LibraryCtrl',
+                controller: 'DetailCtrl',
                 controllerAs: 'detail'
             })
             .otherwise({

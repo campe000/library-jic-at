@@ -38,6 +38,15 @@ public class LibraryResource {
     }
 
     @GET
+    @Path("/listado/{title}")
+    @ApiOperation("list books objects 2")
+    public Response searchBook(String title) {
+       	return Response.ok(this.bookDAO.searchBook(title)).build();
+        
+    }
+
+    
+    @GET
     @Path("/{id}")
     @ApiOperation("get detail book object")
     public Response readBook(@PathParam("id") Long id) {
