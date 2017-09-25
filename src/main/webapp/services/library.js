@@ -12,22 +12,12 @@ angular.module('library')
             createBook: function (library, success) {
                 return $http.post("/rest/library", library).then(success);
             },
+            filterBook: function (library, success) {
+                return $http.post("/rest/library/listado", library).then(success);
+            },
             searchBook: function (library, success) {
-            	return $http({
-            	    method: 'GET',
-            	    url: '/rest/library/listado/' + library,
-            	    data: {
-            	        id: library
-            	    },
-            	    headers: {
-            	        'Content-type': 'application/json;charset=utf-8'
-            	    }
-            	})
-            	.then(function(response) {
-            	    console.log(response.data);
-            	}, function(rejection) {
-            	    console.log(rejection.data);
-            	});
+            	return $http.get("/rest/library/searchBook/"+library).then(success);
+            	
             },
             deleteBook: function (bookId) {
             	return $http({

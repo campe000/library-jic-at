@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
+import com.googlecode.objectify.cmd.Query;
 import com.library.data.Book;
 
 /**
@@ -49,7 +50,10 @@ public class ObjectifyBookDao {
 	public List<Book> searchBook (String textTosearch){
 		LOGGER.info("Busqueda de libros " + textTosearch);
 		List<Book> listado = null;
-		listado = ObjectifyService.ofy().load().type(Book.class).list();
+//		Query q = ObjectifyService.ofy().load.type(Book.class).filter("FirstName in", Name);
+		
+		Query<Book> q = ObjectifyService.ofy().load().type(Book.class).filter("title", textTosearch);
+		listado = q.list();
 		LOGGER.info("Retrieving list of beans");
         return  listado;
 	}

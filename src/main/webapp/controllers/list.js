@@ -15,6 +15,13 @@ angular.module('library')
             });
         }
 
+        $scope.filterBook = function() {
+        	library.filterBook($scope.searchForm, function() {
+                $scope.load();
+            });
+        }
+
+        
         $scope.searchBook = function() {
         	library.searchBook($scope.bookToSearch,function (list) {
         		$scope.list = list.data;

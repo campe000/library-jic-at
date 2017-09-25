@@ -1,7 +1,5 @@
 package com.library.rest;
 
-import java.sql.SQLException;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -38,9 +36,9 @@ public class LibraryResource {
     }
 
     @GET
-    @Path("/listado/{title}")
+    @Path("/searchBook/{title}")
     @ApiOperation("list books objects 2")
-    public Response searchBook(String title) {
+    public Response searchBook(@PathParam("title") String title) {
        	return Response.ok(this.bookDAO.searchBook(title)).build();
         
     }
@@ -65,7 +63,7 @@ public class LibraryResource {
 		this.bookDAO.createBook(bean);
         return Response.ok().build();
     }
-//
+
     @DELETE
     @Path("/delete/{bookId}")
     @ApiOperation("delete book object")
