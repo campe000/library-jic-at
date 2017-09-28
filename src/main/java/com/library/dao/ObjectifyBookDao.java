@@ -1,5 +1,6 @@
 package com.library.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -50,12 +51,15 @@ public class ObjectifyBookDao {
 	public List<Book> searchBook (String textTosearch){
 		LOGGER.info("Busqueda de libros " + textTosearch);
 		List<Book> listado = null;
-//		Query q = ObjectifyService.ofy().load.type(Book.class).filter("FirstName in", Name);
-		
-		Query<Book> q = ObjectifyService.ofy().load().type(Book.class).filter("title", textTosearch);
-		listado = q.list();
-		LOGGER.info("Retrieving list of beans");
-        return  listado;
+		listado = listBooks();
+		LinkedList<Book> l = new LinkedList<Book>();
+	    for (Book obj : listado) {
+	         if (obj.getAuthor().contains(textTosearch))
+	             l.add(obj);
+	         else if (obj.getTitle().contains(textTosearch))
+	        	 l.add(obj);
+	    }
+	    return l;
 	}
 	
 	public List<Book> listBooks() {
